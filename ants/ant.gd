@@ -1,9 +1,10 @@
 extends Node2D
+class_name Ant
 
 var speed := 200.0
 
 func _draw():
-	draw_circle(Vector2.ZERO, 8.0, Color.RED)
+	pass
 
 func _process(delta):
 	position.x += speed * delta
