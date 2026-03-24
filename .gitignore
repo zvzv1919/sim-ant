@@ -1,0 +1,5 @@
+# Godot cache and import directory
+.godot/
+
+# Auto-generated UID files
+*.uid
