@@ -1,5 +1,7 @@
 extends Node2D
 
+const RepulsiveAntManagerScript = preload("res://world/repulsive_ant_manager.gd")
+
 var ant_scenes := {
 	"fire_ant": preload("res://ants/fire_ant.tscn"),
 	"leaf_cutter": preload("res://ants/leaf_cutter.tscn"),
@@ -13,6 +15,12 @@ var _spawn_timer := 0.0
 var spawn_interval: float
 var spawn_spread: float = 20.0
 var _excluded_rect: Control
+
+func _ready():
+	var manager := Node.new()
+	manager.name = "RepulsiveAntManager"
+	manager.set_script(RepulsiveAntManagerScript)
+	add_child(manager)
 
 func set_excluded_control(control: Control):
 	_excluded_rect = control

@@ -30,7 +30,8 @@ Or open in Godot editor and press F5.
   - `leaf_cutter` — green circle sprite, speed 150
   - `army_ant` — yellow triangle sprite, speed 250
   - `bullet_ant` — blue square sprite, moves leftward with increasing speed (overrides `_process`)
-  - `repulsive_ant` — tiny green circle (16×16), extends `RigidBody2D` (not `Ant`). Zero initial velocity, no collision, applies mutual repulsive force via group query
+  - `repulsive_ant` — tiny green circle (16×16), extends `RigidBody2D` (not `Ant`). Zero initial velocity, no collision. Force computation is centralized in `RepulsiveAntManager`; the ant script only handles setup and off-screen cleanup.
+- **RepulsiveAntManager** (`world/repulsive_ant_manager.gd`): Centralized force computation for all repulsive ants. Uses spatial hashing (grid cells of 150px) to limit neighbor checks and `WorkerThreadPool.add_group_task` to parallelize force calculations across CPU cores. Instantiated as a child of World in `_ready()`.
 
 ## Adding a New Ant Type
 
