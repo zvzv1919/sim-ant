@@ -80,12 +80,12 @@ layout_mode = 2
 
 [node name="SpawnIntervalLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Spawn: 80 ms"
+text = "Spawn: 50 ms"
 horizontal_alignment = 1
 
 [node name="SpawnIntervalSlider" type="HSlider" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-min_value = 0.02
-max_value = 0.5
-step = 0.01
-value = 0.08
+min_value = 0.001
+max_value = 0.1
+step = 0.001
+value = 0.05
