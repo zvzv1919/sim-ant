@@ -30,12 +30,13 @@ Or open in Godot editor and press F5.
   - `leaf_cutter` — green circle sprite, speed 150
   - `army_ant` — yellow triangle sprite, speed 250
   - `bullet_ant` — blue square sprite, moves leftward with increasing speed (overrides `_process`)
+  - `repulsive_ant` — tiny green circle (16×16), extends `RigidBody2D` (not `Ant`). Zero initial velocity, no collision, applies mutual repulsive force via group query
 
 ## Adding a New Ant Type
 
 1. Create a sprite PNG in `sprites/<name>.png`
-2. Create `ants/<name>.gd` extending `Ant`, set speed in `_ready()`
-3. Create `ants/<name>.tscn` with a Node2D root using that script and a `Sprite2D` child with the sprite texture
+2. Create `ants/<name>.gd` extending `Ant` (or `RigidBody2D` for physics-based ants), set speed in `_ready()`
+3. Create `ants/<name>.tscn` with a root node matching the script's base type and a `Sprite2D` child with the sprite texture
 4. Add the scene to `ant_scenes` dict in `world/world.gd`
 5. Add a button with sprite icon in `hud/hud.tscn` and wire it up in `hud/hud.gd`
 

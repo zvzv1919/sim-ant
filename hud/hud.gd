@@ -8,6 +8,7 @@ signal spawn_spread_changed(spread: float)
 @onready var leaf_btn = $MarginContainer/VBoxContainer/LeafCutterButton
 @onready var army_btn = $MarginContainer/VBoxContainer/ArmyAntButton
 @onready var bullet_btn = $MarginContainer/VBoxContainer/BulletAntButton
+@onready var repulsive_btn = $MarginContainer/VBoxContainer/RepulsiveAntButton
 @onready var spawn_slider = $MarginContainer/VBoxContainer/SpawnIntervalSlider
 @onready var spawn_label = $MarginContainer/VBoxContainer/SpawnIntervalLabel
 @onready var spread_slider = $MarginContainer/VBoxContainer/SpawnSpreadSlider
@@ -24,6 +25,7 @@ func _ready():
 	leaf_btn.pressed.connect(_select.bind("leaf_cutter"))
 	army_btn.pressed.connect(_select.bind("army_ant"))
 	bullet_btn.pressed.connect(_select.bind("bullet_ant"))
+	repulsive_btn.pressed.connect(_select.bind("repulsive_ant"))
 	_highlight_selected()
 	spawn_slider.value_changed.connect(_on_spawn_interval_changed)
 	_update_spawn_label()
@@ -40,6 +42,7 @@ func _highlight_selected():
 	leaf_btn.button_pressed = (selected_ant_type == "leaf_cutter")
 	army_btn.button_pressed = (selected_ant_type == "army_ant")
 	bullet_btn.button_pressed = (selected_ant_type == "bullet_ant")
+	repulsive_btn.button_pressed = (selected_ant_type == "repulsive_ant")
 
 func _on_spawn_interval_changed(value: float):
 	spawn_interval_changed.emit(value)

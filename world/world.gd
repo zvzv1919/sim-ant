@@ -5,6 +5,7 @@ var ant_scenes := {
 	"leaf_cutter": preload("res://ants/leaf_cutter.tscn"),
 	"army_ant": preload("res://ants/army_ant.tscn"),
 	"bullet_ant": preload("res://ants/bullet_ant.tscn"),
+	"repulsive_ant": preload("res://ants/repulsive_ant.tscn"),
 }
 var selected_ant_type := "fire_ant"
 var _mouse_held := false
